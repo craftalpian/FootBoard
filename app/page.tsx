@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
@@ -36,14 +36,6 @@ export default function Example() {
 
   return (
     <>
-      {/*
-        This example requires updating your template:
-
-        ```
-        <html class="h-full bg-white">
-        <body class="h-full">
-        ```
-      */}
       <div>
         <Transition.Root show={sidebarOpen} as={Fragment}>
           <Dialog
@@ -100,11 +92,9 @@ export default function Example() {
                   {/* Sidebar component, swap this element with another sidebar if you like */}
                   <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-white px-6 pb-2">
                     <div className="flex h-16 shrink-0 items-center">
-                      <img
-                        className="h-8 w-auto"
-                        src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                        alt="Your Company"
-                      />
+                      <h1 className="text-base font-semibold leading-6 text-gray-900">
+                        FootBoard ⚽️
+                      </h1>
                     </div>
                     <nav className="flex flex-1 flex-col">
                       <ul role="list" className="flex flex-1 flex-col gap-y-7">
@@ -116,16 +106,16 @@ export default function Example() {
                                   href={item.href}
                                   className={classNames(
                                     item.current
-                                      ? "bg-gray-50 text-indigo-600"
-                                      : "text-gray-700 hover:text-indigo-600 hover:bg-gray-50",
+                                      ? "bg-gray-50 text-gray-600"
+                                      : "text-gray-700 hover:text-gray-600 hover:bg-gray-50",
                                     "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
                                   )}
                                 >
                                   <item.icon
                                     className={classNames(
                                       item.current
-                                        ? "text-indigo-600"
-                                        : "text-gray-400 group-hover:text-indigo-600",
+                                        ? "text-gray-600"
+                                        : "text-gray-400 group-hover:text-gray-600",
                                       "h-6 w-6 shrink-0"
                                     )}
                                     aria-hidden="true"
@@ -147,16 +137,16 @@ export default function Example() {
                                   href={team.href}
                                   className={classNames(
                                     team.current
-                                      ? "bg-gray-50 text-indigo-600"
-                                      : "text-gray-700 hover:text-indigo-600 hover:bg-gray-50",
+                                      ? "bg-gray-50 text-gray-600"
+                                      : "text-gray-700 hover:text-gray-600 hover:bg-gray-50",
                                     "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
                                   )}
                                 >
                                   <span
                                     className={classNames(
                                       team.current
-                                        ? "text-indigo-600 border-indigo-600"
-                                        : "text-gray-400 border-gray-200 group-hover:border-indigo-600 group-hover:text-indigo-600",
+                                        ? "text-gray-600 border-indigo-600"
+                                        : "text-gray-400 border-gray-200 group-hover:border-indigo-600 group-hover:text-gray-600",
                                       "flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border text-[0.625rem] font-medium bg-white"
                                     )}
                                   >
@@ -182,11 +172,9 @@ export default function Example() {
           {/* Sidebar component, swap this element with another sidebar if you like */}
           <div className="flex grow flex-col gap-y-5 overflow-y-auto border-r border-gray-200 bg-white px-6">
             <div className="flex h-16 shrink-0 items-center">
-              <img
-                className="h-8 w-auto"
-                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                alt="Your Company"
-              />
+              <h1 className="text-base font-semibold leading-6 text-gray-900">
+                FootBoard ⚽️
+              </h1>
             </div>
             <nav className="flex flex-1 flex-col">
               <ul role="list" className="flex flex-1 flex-col gap-y-7">
@@ -198,16 +186,16 @@ export default function Example() {
                           href={item.href}
                           className={classNames(
                             item.current
-                              ? "bg-gray-50 text-indigo-600"
-                              : "text-gray-700 hover:text-indigo-600 hover:bg-gray-50",
+                              ? "bg-gray-50 text-gray-600"
+                              : "text-gray-700 hover:text-gray-600 hover:bg-gray-50",
                             "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
                           )}
                         >
                           <item.icon
                             className={classNames(
                               item.current
-                                ? "text-indigo-600"
-                                : "text-gray-400 group-hover:text-indigo-600",
+                                ? "text-gray-600"
+                                : "text-gray-400 group-hover:text-gray-600",
                               "h-6 w-6 shrink-0"
                             )}
                             aria-hidden="true"
@@ -229,16 +217,16 @@ export default function Example() {
                           href={team.href}
                           className={classNames(
                             team.current
-                              ? "bg-gray-50 text-indigo-600"
-                              : "text-gray-700 hover:text-indigo-600 hover:bg-gray-50",
+                              ? "bg-gray-50 text-gray-600"
+                              : "text-gray-700 hover:text-gray-600 hover:bg-gray-50",
                             "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
                           )}
                         >
                           <span
                             className={classNames(
                               team.current
-                                ? "text-indigo-600 border-indigo-600"
-                                : "text-gray-400 border-gray-200 group-hover:border-indigo-600 group-hover:text-indigo-600",
+                                ? "text-gray-600 border-indigo-600"
+                                : "text-gray-400 border-gray-200 group-hover:border-indigo-600 group-hover:text-gray-600",
                               "flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border text-[0.625rem] font-medium bg-white"
                             )}
                           >
@@ -250,20 +238,6 @@ export default function Example() {
                     ))}
                   </ul>
                 </li>
-                {/* <li className="-mx-6 mt-auto">
-                  <a
-                    href="#"
-                    className="flex items-center gap-x-4 px-6 py-3 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-50"
-                  >
-                    <img
-                      className="h-8 w-8 rounded-full bg-gray-50"
-                      src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                      alt=""
-                    />
-                    <span className="sr-only">Your profile</span>
-                    <span aria-hidden="true">Tom Cook</span>
-                  </a>
-                </li> */}
               </ul>
             </nav>
           </div>
@@ -278,24 +252,15 @@ export default function Example() {
             <span className="sr-only">Open sidebar</span>
             <Bars3Icon className="h-6 w-6" aria-hidden="true" />
           </button>
-          <div className="flex-1 text-sm font-semibold leading-6 text-gray-900">
-            Dashboard
+          <div className="flex-1 text-base font-semibold leading-6 text-gray-900">
+            FootBoard ⚽️
           </div>
-          <a href="#">
-            <span className="sr-only">Your profile</span>
-            {/* <img
-              className="h-8 w-8 rounded-full bg-gray-50"
-              src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-              alt=""
-            /> */}
-          </a>
         </div>
 
         <main className="lg:pl-72">
           <div className="xl:pl-96">
             <div className="px-4 py-10 sm:px-6 lg:px-8 lg:py-6 flex bg-white flex-1 h-screen">
               {/* Main area */}
-              
             </div>
           </div>
         </main>
