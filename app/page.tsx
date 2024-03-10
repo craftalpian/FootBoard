@@ -27,6 +27,12 @@ const teams = [
   { id: 3, name: "Workcation", href: "#", initial: "W", current: false },
 ];
 
+const stats = [
+  { name: "Total Subscribers", stat: "71,897" },
+  { name: "Avg. Open Rate", stat: "58.16%" },
+  { name: "Avg. Click Rate", stat: "24.57%" },
+];
+
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(" ");
 }
@@ -258,16 +264,31 @@ export default function Example() {
         </div>
 
         <main className="lg:pl-72">
-          <div className="xl:pl-96">
-            <div className="px-4 py-10 sm:px-6 lg:px-8 lg:py-6 flex bg-white flex-1 h-screen">
+            <div className="px-4 py-10 sm:px-6 lg:px-8 lg:py-6 flex bg-green-200 flex-1 h-screen">
               {/* Main area */}
+              {/* Statistic */}
+              <div className="w-full">
+                <h3 className="text-base font-semibold leading-6 text-gray-900">
+                  Ringkasan
+                </h3>
+                <dl className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-3">
+                  {stats.map((item) => (
+                    <div
+                      key={item.name}
+                      className="overflow-hidden rounded-lg bg-white px-4 py-5 shadow sm:p-6"
+                    >
+                      <dt className="truncate text-sm font-medium text-gray-500">
+                        {item.name}
+                      </dt>
+                      <dd className="mt-1 text-3xl font-semibold tracking-tight text-gray-900">
+                        {item.stat}
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
             </div>
-          </div>
         </main>
-
-        <aside className="fixed inset-y-0 left-72 hidden w-96 overflow-y-auto border-r border-gray-200 px-4 py-6 sm:px-6 lg:px-8 xl:block">
-          {/* Secondary column (hidden on smaller screens) */}
-        </aside>
       </div>
     </>
   );
