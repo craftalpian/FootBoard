@@ -14,6 +14,7 @@ import {
 } from "@heroicons/react/24/outline";
 import { useSummaryData } from "./_hook/use-summary-data";
 import { useCompetitionSpecificData } from "./_hook/use-competition-specific-data";
+import MyLineChart from "./_components/statistic";
 
 const navigation = [
   { name: "Dashboard", href: "#", icon: HomeIcon, current: true },
@@ -23,6 +24,7 @@ const navigation = [
   { name: "Documents", href: "#", icon: DocumentDuplicateIcon, current: false },
   { name: "Reports", href: "#", icon: ChartPieIcon, current: false },
 ];
+
 const teams = [
   { id: 1, name: "Heroicons", href: "#", initial: "H", current: false },
   { id: 2, name: "Tailwind Labs", href: "#", initial: "T", current: false },
@@ -40,7 +42,7 @@ export default function Example() {
   const { data: leaguesData } = useSummaryData("get_leagues");
   const { data: indonesiaLeaguesData } = useCompetitionSpecificData(
     "get_leagues",
-    59
+    59 // Indonesia country id
   );
 
   const stats = [
@@ -273,28 +275,36 @@ export default function Example() {
         </div>
 
         <main className="lg:pl-72">
-          <div className="px-4 py-10 sm:px-6 lg:px-8 lg:py-6 flex bg-green-200 flex-1 h-screen">
+          <div className="px-4 py-10 sm:px-6 lg:px-8 lg:py-6 flex bg-gray-50 flex-1 h-screen">
             {/* Main area */}
-            {/* Statistic */}
+
             <div className="w-full">
-              <h3 className="text-base font-semibold leading-6 text-gray-900">
-                Ringkasan
-              </h3>
-              <dl className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-3">
-                {stats.map((item) => (
-                  <div
-                    key={item.name}
-                    className="overflow-hidden rounded-lg bg-white px-4 py-5 shadow sm:p-6"
-                  >
-                    <dt className="truncate text-sm font-medium text-gray-500">
-                      {item.name}
-                    </dt>
-                    <dd className="mt-1 text-3xl font-semibold tracking-tight text-gray-900">
-                      {item.stat}
-                    </dd>
-                  </div>
-                ))}
-              </dl>
+              {/* Statistic */}
+              <div>
+                <h3 className="text-base font-semibold leading-6 text-gray-900">
+                  Ringkasan
+                </h3>
+                <dl className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-3">
+                  {stats.map((item) => (
+                    <div
+                      key={item.name}
+                      className="overflow-hidden rounded-lg bg-white px-4 py-5 shadow sm:p-6"
+                    >
+                      <dt className="truncate text-sm font-medium text-gray-500">
+                        {item.name}
+                      </dt>
+                      <dd className="mt-1 text-3xl font-semibold tracking-tight text-gray-900">
+                        {item.stat}
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+
+              <div className="mt-6 flex w-full">
+                {/* <MapChart /> */}
+                <MyLineChart />
+              </div>
             </div>
           </div>
         </main>
