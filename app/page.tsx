@@ -12,15 +12,13 @@ import {
   UsersIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
-import { useSummaryData } from "./_hook/use-summary-data";
-import { useCompetitionSpecificData } from "./_hook/use-competition-specific-data";
-import MyLineChart from "./_components/statistic";
+import Dashboard from "./_pages/dashboard";
 
 const navigation = [
-  { name: "Dashboard", href: "#", icon: HomeIcon, current: true },
-  { name: "Team", href: "#", icon: UsersIcon, current: false },
-  { name: "Projects", href: "#", icon: FolderIcon, current: false },
-  { name: "Calendar", href: "#", icon: CalendarIcon, current: false },
+  { name: "Beranda", href: "#", icon: HomeIcon, current: true },
+  { name: "Tim", href: "#", icon: UsersIcon, current: false },
+  { name: "Laga", href: "#", icon: FolderIcon, current: false },
+  { name: "Pemain", href: "#", icon: CalendarIcon, current: false },
   { name: "Documents", href: "#", icon: DocumentDuplicateIcon, current: false },
   { name: "Reports", href: "#", icon: ChartPieIcon, current: false },
 ];
@@ -37,19 +35,6 @@ function classNames(...classes: any) {
 
 export default function Example() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-
-  const { data: countryData } = useSummaryData("get_countries");
-  const { data: leaguesData } = useSummaryData("get_leagues");
-  const { data: indonesiaLeaguesData } = useCompetitionSpecificData(
-    "get_leagues",
-    59 // Indonesia country id
-  );
-
-  const stats = [
-    { name: "Total Negara", stat: countryData?.length ?? 0 },
-    { name: "Total Laga", stat: leaguesData?.length ?? 0 },
-    { name: "Laga Indonesia", stat: indonesiaLeaguesData?.length ?? 0 },
-  ];
 
   return (
     <>
@@ -279,32 +264,7 @@ export default function Example() {
             {/* Main area */}
 
             <div className="w-full">
-              {/* Statistic */}
-              <div>
-                <h3 className="text-base font-semibold leading-6 text-gray-900">
-                  Ringkasan
-                </h3>
-                <dl className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-3">
-                  {stats.map((item) => (
-                    <div
-                      key={item.name}
-                      className="overflow-hidden rounded-lg bg-white px-4 py-5 shadow sm:p-6"
-                    >
-                      <dt className="truncate text-sm font-medium text-gray-500">
-                        {item.name}
-                      </dt>
-                      <dd className="mt-1 text-3xl font-semibold tracking-tight text-gray-900">
-                        {item.stat}
-                      </dd>
-                    </div>
-                  ))}
-                </dl>
-              </div>
-
-              <div className="mt-6 flex w-full">
-                {/* <MapChart /> */}
-                <MyLineChart />
-              </div>
+              <Dashboard />
             </div>
           </div>
         </main>
