@@ -23,11 +23,8 @@ ChartJS.register(
 
 const PieChart = () => {
   return (
-    <div className="flex bg-green-200 flex-1">
+    <div className="flex flex-1">
       <Pie
-        // options={{ maintainAspectRatio: false }}
-        // width={500}
-        // height={500}
         data={{
           datasets: [
             {

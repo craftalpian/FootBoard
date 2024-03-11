@@ -19,8 +19,8 @@ const navigation = [
   { name: "Tim", href: "#", icon: UsersIcon, current: false },
   { name: "Laga", href: "#", icon: FolderIcon, current: false },
   { name: "Pemain", href: "#", icon: CalendarIcon, current: false },
-  { name: "Documents", href: "#", icon: DocumentDuplicateIcon, current: false },
-  { name: "Reports", href: "#", icon: ChartPieIcon, current: false },
+  // { name: "Documents", href: "#", icon: DocumentDuplicateIcon, current: false },
+  // { name: "Reports", href: "#", icon: ChartPieIcon, current: false },
 ];
 
 const teams = [
@@ -128,7 +128,7 @@ export default function Example() {
                             ))}
                           </ul>
                         </li>
-                        <li>
+                        {/* <li>
                           <div className="text-xs font-semibold leading-6 text-gray-400">
                             Your teams
                           </div>
@@ -159,7 +159,7 @@ export default function Example() {
                               </li>
                             ))}
                           </ul>
-                        </li>
+                        </li> */}
                       </ul>
                     </nav>
                   </div>
@@ -259,7 +259,7 @@ export default function Example() {
           </div>
         </div>
 
-        <main className="lg:pl-72">
+        <main className="lg:pl-72 bg-white">
           <div className="px-4 py-10 sm:px-6 lg:px-8 lg:py-6 flex bg-gray-50 flex-1 h-screen">
             {/* Main area */}
 
