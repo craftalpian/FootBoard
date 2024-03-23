@@ -4,7 +4,7 @@ import { useCompetitionSpecificData } from "@/app/_hook/use-competition-specific
 import { useRouter } from "next/navigation";
 import { IoIosStats } from "react-icons/io";
 
-const Dashboard = ({ params }: { params: { country_id: string } }) => {
+const League = ({ params }: { params: { country_id: string } }) => {
   const { data: leagueData, isLoading } = useCompetitionSpecificData(
     "get_leagues",
     parseInt(params?.country_id)
@@ -45,7 +45,7 @@ const Dashboard = ({ params }: { params: { country_id: string } }) => {
               <tbody>
                 {(leagueData || [])?.map(
                   (
-                    { league_logo, league_name, league_season }: any,
+                    { league_logo, league_name, league_season, league_id }: any,
                     index: number
                   ) => (
                     <tr>
@@ -69,7 +69,7 @@ const Dashboard = ({ params }: { params: { country_id: string } }) => {
                       <td>
                         <button
                           className="btn btn-ghost btn-sm bg-gray-600 text-white"
-                          //   onClick={() => push(`/league/${country_id}`)}
+                          onClick={() => push(`/detail/${league_id}`)}
                         >
                           <IoIosStats />
                         </button>
@@ -86,4 +86,4 @@ const Dashboard = ({ params }: { params: { country_id: string } }) => {
   );
 };
 
-export default Dashboard;
+export default League;

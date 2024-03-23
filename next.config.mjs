@@ -15,6 +15,10 @@ const nextConfig = {
         source: "/football-api/:action/country/:country",
         destination: `${targetUrl}&action=:action&country_id=:country`,
       },
+      {
+        source: "/football-api/:action/teams/:league",
+        destination: `${targetUrl}&action=:action&league_id=:league`,
+      },
     ];
   },
 };

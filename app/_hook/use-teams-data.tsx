@@ -3,12 +3,12 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
-export const useSummaryData = (additionalParam: string) => {
+export const useTeamsData = (additionalParam: string, leagueId: number) => {
   return useQuery({
-    queryKey: [`summary-${additionalParam}`],
+    queryKey: [`summary-${additionalParam}-teams-${leagueId}`],
     queryFn: () =>
       axios
-        .get(`/football-api/${additionalParam}`)
+        .get(`/football-api/${additionalParam}/teams/${leagueId}`)
         .then((res) => {
           return res?.data;
         })
