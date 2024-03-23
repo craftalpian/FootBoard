@@ -37,7 +37,7 @@ const Detail = ({ params }: { params: { league_id: string } }) => {
                   <th>Tahun Berdiri</th>
                   <th>Jumlah Pemain</th>
                   <th>Pelatih</th>
-                  <th></th>
+                  <th>Pemain</th>
                 </tr>
               </thead>
               <tbody>
