@@ -22,7 +22,7 @@ const TableComponents = ({ countryData, leaguesData }: any) => {
       <tbody>
         {(countryData || [])?.map(
           ({ country_logo, country_name, country_id }: any, index: number) => (
-            <tr>
+            <tr key={index}>
               <th>
                 <label>{String(index + 1)}</label>
               </th>

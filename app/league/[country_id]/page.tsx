@@ -48,7 +48,7 @@ const League = ({ params }: { params: { country_id: string } }) => {
                     { league_logo, league_name, league_season, league_id }: any,
                     index: number
                   ) => (
-                    <tr>
+                    <tr key={index}>
                       <th>{String(index + 1)}</th>
                       <td>
                         <div className="flex items-center gap-3">

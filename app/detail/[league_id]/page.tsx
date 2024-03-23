@@ -53,7 +53,7 @@ const Detail = ({ params }: { params: { league_id: string } }) => {
                     }: any,
                     index: number
                   ) => (
-                    <tr>
+                    <tr key={index}>
                       <th>{String(index + 1)}</th>
                       <td>
                         <div className="flex items-center gap-3">

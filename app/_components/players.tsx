@@ -20,7 +20,7 @@ const Players = ({ data }: { data: any[] }) => {
               player_yellow_cards,
               player_red_cards,
             }: any) => (
-              <tr>
+              <tr key={player_id}>
                 <td>
                   <div className="flex items-center gap-3">
                     <div>
