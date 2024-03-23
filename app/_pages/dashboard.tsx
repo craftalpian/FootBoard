@@ -46,7 +46,11 @@ const Dashboard = () => {
                 {item.name}
               </dt>
               <dd className="mt-1 text-3xl font-semibold tracking-tight text-gray-900">
-                {item.stat}
+                {item.stat > 0 ? (
+                  item.stat
+                ) : (
+                  <span className="loading loading-spinner loading-lg"></span>
+                )}
               </dd>
             </div>
           ))}
@@ -96,7 +100,7 @@ const Dashboard = () => {
                           </div>
                         </td>
                         <td>
-                          <span className="badge badge-ghost badge-sm">
+                          <span className="badge badge-ghost badge-xl">
                             {`${countLeague({
                               country_id,
                               data: leaguesData,
