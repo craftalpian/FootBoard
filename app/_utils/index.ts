@@ -11,3 +11,7 @@ export const countLeague = ({
     ).length || 0
   );
 };
+
+export const classNames = (...classes: any) => {
+  return classes.filter(Boolean).join(" ");
+};
