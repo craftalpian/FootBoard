@@ -1,8 +1,9 @@
 "use client";
 
-import PieChart from "../_components/pie";
 import { useCompetitionSpecificData } from "../_hook/use-competition-specific-data";
 import { useSummaryData } from "../_hook/use-summary-data";
+import { countLeague } from "../_utils";
+import { GrSearch } from "react-icons/gr";
 
 const people = [
   {
@@ -53,155 +54,67 @@ const Dashboard = () => {
       </div>
 
       <div className="mt-6 flex w-full overflow-hidden rounded-lg bg-white px-4 py-5 shadow sm:p-6">
-        <div className="w-full bg-yellow-100 flex flex-col px-20 items-center justify-center sm:px-10">
-          <PieChart />
-          <hr />
-          <div>
-            <table className="divide-y divide-gray-300">
-              <thead className="bg-gray-50">
-                <tr>
-                  <th
-                    scope="col"
-                    className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6"
-                  >
-                    Name
-                  </th>
-                  <th
-                    scope="col"
-                    className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
-                  >
-                    Title
-                  </th>
-                  <th
-                    scope="col"
-                    className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
-                  >
-                    Email
-                  </th>
-                  <th
-                    scope="col"
-                    className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
-                  >
-                    Role
-                  </th>
-                  <th scope="col" className="relative py-3.5 pl-3 pr-4 sm:pr-6">
-                    <span className="sr-only">Edit</span>
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-200 bg-white">
-                {people.map((person) => (
-                  <tr key={person.email}>
-                    <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
-                      {person.name}
-                    </td>
-                    <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                      {person.title}
-                    </td>
-                    <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                      {person.email}
-                    </td>
-                    <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                      {person.role}
-                    </td>
-                    <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                      <a
-                        href="#"
-                        className="text-indigo-600 hover:text-indigo-900"
-                      >
-                        Edit
-                        <span className="sr-only">, {person.name}</span>
-                      </a>
-                    </td>
+        <div className="w-full flex flex-col">
+          <div className="overflow-x-auto">
+            <div className="overflow-x-auto">
+              <table className="table" data-theme="light">
+                {/* head */}
+                <thead>
+                  <tr>
+                    <th>
+                      <label>#</label>
+                    </th>
+                    <th>Negara</th>
+                    <th>Laga</th>
+                    <th></th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {/* row 1 */}
+                  {(countryData || [])?.map(
+                    (
+                      { country_logo, country_name, country_id }: any,
+                      index: number
+                    ) => (
+                      <tr>
+                        <th>
+                          <label>{String(index + 1)}</label>
+                        </th>
+                        <td>
+                          <div className="flex items-center gap-3">
+                            <div className="avatar">
+                              <div className="mask mask-squircle w-12 h-12">
+                                <img
+                                  src={country_logo}
+                                  alt={`${country_name} logo`}
+                                />
+                              </div>
+                            </div>
+                            <div>
+                              <div className="font-bold">{country_name}</div>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <span className="badge badge-ghost badge-sm">
+                            {`${countLeague({
+                              country_id,
+                              data: leaguesData,
+                            })} laga`}
+                          </span>
+                        </td>
+                        <th>
+                          <button className="btn btn-ghost btn-sm bg-gray-600 text-white">
+                            <GrSearch />
+                          </button>
+                        </th>
+                      </tr>
+                    )
+                  )}
+                </tbody>
+              </table>
+            </div>
           </div>
-          {/* <div className="bg-red-200">
-            <div className="sm:flex sm:items-center">
-              <div className="sm:flex-auto">
-                <h1 className="text-base font-semibold leading-6 text-gray-900">
-                  Users
-                </h1>
-                <p className="mt-2 text-sm text-gray-700">
-                  A list of all the users in your account including their name,
-                  title, email and role.
-                </p>
-              </div>
-            </div>
-            <div className="mt-8 flow-root">
-              <div className="overflow-x-auto lg:-mx-8">
-                <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
-                  <div className="overflow-hidden shadow ring-1 ring-black ring-opacity-5 sm:rounded-lg">
-                    <table className="min-w-full divide-y divide-gray-300">
-                      <thead className="bg-gray-50">
-                        <tr>
-                          <th
-                            scope="col"
-                            className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6"
-                          >
-                            Name
-                          </th>
-                          <th
-                            scope="col"
-                            className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
-                          >
-                            Title
-                          </th>
-                          <th
-                            scope="col"
-                            className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
-                          >
-                            Email
-                          </th>
-                          <th
-                            scope="col"
-                            className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
-                          >
-                            Role
-                          </th>
-                          <th
-                            scope="col"
-                            className="relative py-3.5 pl-3 pr-4 sm:pr-6"
-                          >
-                            <span className="sr-only">Edit</span>
-                          </th>
-                        </tr>
-                      </thead>
-                      <tbody className="divide-y divide-gray-200 bg-white">
-                        {people.map((person) => (
-                          <tr key={person.email}>
-                            <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
-                              {person.name}
-                            </td>
-                            <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                              {person.title}
-                            </td>
-                            <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                              {person.email}
-                            </td>
-                            <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                              {person.role}
-                            </td>
-                            <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                              <a
-                                href="#"
-                                className="text-indigo-600 hover:text-indigo-900"
-                              >
-                                Edit
-                                <span className="sr-only">, {person.name}</span>
-                              </a>
-                            </td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div> */}
         </div>
       </div>
     </>
