@@ -8,6 +8,7 @@ import {
   HomeIcon,
   UsersIcon,
   XMarkIcon,
+  CodeBracketIcon,
 } from "@heroicons/react/24/outline";
 import { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
@@ -21,6 +22,12 @@ const navigation = [
     name: "Credit",
     href: "https://apifootball.com/",
     icon: UsersIcon,
+    current: false,
+  },
+  {
+    name: "Github",
+    href: "https://github.com/craftalpian/FootBoard",
+    icon: CodeBracketIcon,
     current: false,
   },
 ];
