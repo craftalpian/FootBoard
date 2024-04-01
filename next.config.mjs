@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 
 const apiKey =
-  "4dd0f7d3c60a0269c8d224a582d58bf945c52959e384e52d3e4d8c1101015836";
+  "5505674c332ec62b68f01ede9a05cb934e82b518a7a86315e91490db9a2a62ad";
 const targetUrl = `https://apiv3.apifootball.com/?APIkey=${apiKey}`;
 
 const nextConfig = {
